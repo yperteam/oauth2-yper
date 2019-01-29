@@ -51,4 +51,37 @@ class YperResourceOwner implements ResourceOwnerInterface {
     {
         return $this->response['result']['emails'] ?: null;
     }
+
+    /**
+     * Get phones
+     *
+     * @return string|null
+     */
+    public function getPhones()
+    {
+        return $this->response['result']['phones'] ?: null;
+    }
+
+    /**
+     * Return main email for an user (last one verified)
+     *
+     * @return string|null
+     */
+    public function getMainEmail() {
+        if (isset($this->response['result']['emails'])) {
+            $nb_emails = count($this->response['result']['emails']);
+            if ($nb_emails == 1) {
+                return $this->response['result']['emails'][0]['address'];
+            } else if ($nb_emails > 1) {
+                $i = $nb_emails - 1;
+                while ($i >= 0) {
+                    if ($this->response['result']['emails'][$i]['verified'] == true) {
+                        return $this->response['result']['emails'][$i]['email'];
+                    }
+                    $i--;
+                }
+            }
+        }
+        return null;
+    }
 }
