@@ -29,7 +29,7 @@ class YperResourceOwner implements ResourceOwnerInterface {
      */
     public function getId()
     {
-        return $this->response['result']['id'] ?: null;
+        return $this->response['result']['_id'] ?: null;
     }
 
     /**
