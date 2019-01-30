@@ -83,7 +83,7 @@ class YperTest extends \PHPUnit_Framework_TestCase
     {
         $response_data = [
             'result' => [
-                'id' => rand(1000, 9999),
+                '_id' => rand(1000, 9999),
                 'emails' => [
                     [
                         'email' => 'email@yper.fr',
@@ -112,8 +112,8 @@ class YperTest extends \PHPUnit_Framework_TestCase
         $token = $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
         $user = $this->provider->getResourceOwner($token);
 
-        $this->assertEquals($response_data['result']['id'], $user->getId());
-        $this->assertEquals($response_data['result']['id'], $user->toArray()['id']);
+        $this->assertEquals($response_data['result']['_id'], $user->getId());
+        $this->assertEquals($response_data['result']['_id'], $user->toArray()['_id']);
 
         $this->assertEquals($response_data['result']['emails'], $user->getEmails());
         $this->assertEquals($response_data['result']['emails'], $user->toArray()['emails']);
