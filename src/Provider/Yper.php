@@ -15,7 +15,9 @@ class Yper extends AbstractProvider
 
     private $baseURI = [
         'production' => 'https://api.yper.io',
-        'staging' => 'https://io.yper.org',
+        'rc' => 'https://io.rc.yper.org',
+        'beta' => 'https://io.beta.yper.org',
+        'alpha' => 'https://io.alpha.yper.org',
         'development' => 'http://localhost:5000'
     ];
 
