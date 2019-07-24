@@ -76,7 +76,7 @@ class YperResourceOwner implements ResourceOwnerInterface {
                 $i = $nb_emails - 1;
                 while ($i >= 0) {
                     if ($this->response['result']['emails'][$i]['verified'] == true) {
-                        return $this->response['result']['emails'][$i]['email'];
+                        return $this->response['result']['emails'][$i]['address'];
                     }
                     $i--;
                 }
