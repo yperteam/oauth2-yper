@@ -35,6 +35,8 @@ class Yper extends AbstractProvider
 
         if (isset($this->baseURI[$this->env])) {
             $this->uri = $this->baseURI[$this->env];
+        } else {
+            $this->uri = $this->env;
         }
     }
 
